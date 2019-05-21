@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image } from 'react-native';
+import { Image , TextInput } from 'react-native';
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text, Card, CardItem, Thumbnail, H1, H2, H3 } from 'native-base';
 import { Permissions, ImagePicker } from 'expo';
 
@@ -7,6 +7,7 @@ export default class AddRecipeScreen extends Component {
 
   state = {
     image: null,
+    text: '',
   };
 
   static navigationOptions = {
@@ -44,12 +45,22 @@ export default class AddRecipeScreen extends Component {
             <Title>Add Recipe</Title>
           </Body>
           <Right>
+            <Button transparent>
+              <Text>Post</Text>
+            </Button>
           </Right>
         </Header>
 
         <Content>
         {image && <Image source={{ uri: image }} style={{height: 350, width: null, flex: 1}} />}
         <Button block style={{ margin: 10 }} onPress={this._pickImage}><Text>Select Photo</Text></Button>
+        
+        <TextInput style={{ flex: 1, padding: 10, marginHorizontal:10, fontSize: 15, backgroundColor: '#f2f2f2', height: 150 }}
+        placeholder="Add caption..."
+        multiline = {true}
+        numberOfLines = {4}
+        onChangeText={(text) => this.setState({text})}
+        value={this.state.text}/>
 
         </Content>
 
