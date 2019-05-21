@@ -25,9 +25,9 @@ const RootStack = createStackNavigator({
     Signup: SignupScreen,
     Login: LoginScreen,
     Home: HomeScreen,
-    AddRecipe: AddRecipeScreen
+    AddRecipe: AddRecipeScreen,
   },{
-    initialRouteName: 'Login',
+    initialRouteName: 'Home',
   }
 ); 
 

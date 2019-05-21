@@ -1,16 +1,37 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text, Card, CardItem, Thumbnail, H1, H2, H3 } from 'native-base';
-import { Avatar, Rating } from 'react-native-elements';
-import * as firebase from 'firebase';
+import { Permissions, ImagePicker } from 'expo';
 
 export default class AddRecipeScreen extends Component {
+
+  state = {
+    image: null,
+  };
 
   static navigationOptions = {
     header: null //used for removing blank space from top
     };
 
+    _pickImage = async () => {
+      const status = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+      
+      if (status) {
+        result = await ImagePicker.launchImageLibraryAsync({
+          allowsEditing: true,
+          aspect: [3, 3],});
+      }
+      console.log(result);
+
+      if (!result.cancelled) {
+        this.setState({ image: result.uri });
+      }
+    };
+
   render() {
+
+    let { image } = this.state;
+
     return (
       <Container>
         <Header>
@@ -27,9 +48,8 @@ export default class AddRecipeScreen extends Component {
         </Header>
 
         <Content>
-        
-        <Button block style={{ margin: 10 }}><Text>Select Photo</Text></Button>
-        <Button block style={{ margin: 10, marginTop: 5 }}><Text>Open Camera</Text></Button>
+        {image && <Image source={{ uri: image }} style={{height: 350, width: null, flex: 1}} />}
+        <Button block style={{ margin: 10 }} onPress={this._pickImage}><Text>Select Photo</Text></Button>
 
         </Content>
 
