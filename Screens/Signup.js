@@ -27,7 +27,12 @@ export default class SignupScreen extends Component {
         }
 
         firebase.auth().createUserWithEmailAndPassword(email, password)
-
+          .then((authData) => {
+            let account = {}
+            account.email = email
+            firebase.database().ref('UsersList/').push({account})
+          })
+          
         alert("Your account has been created successfully!");
       }
 

@@ -20,7 +20,7 @@ export default class HomeScreen extends Component {
             <Title>DAPOGRAM</Title>
           </Body>
           <Right>
-            <Button transparent>
+            <Button transparent onPress={() => this.props.navigation.navigate('Settings')}>
               <Icon name="settings" style={{ color: "#2E3131" }}/>
             </Button>
           </Right>

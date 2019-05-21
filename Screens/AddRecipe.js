@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image , TextInput } from 'react-native';
+import { View, Image, TextInput } from 'react-native';
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text, Card, CardItem, Thumbnail, H1, H2, H3 } from 'native-base';
 import { Permissions, ImagePicker } from 'expo';
 
@@ -52,7 +52,7 @@ export default class AddRecipeScreen extends Component {
         </Header>
 
         <Content>
-        {image && <Image source={{ uri: image }} style={{height: 350, width: null, flex: 1}} />}
+        <View style={{height:350, backgroundColor: '#f2f2f2'}}>{image && <Image source={{ uri: image }} style={{height: 350, width: null, flex: 1}} />}</View>
         <Button block style={{ margin: 10 }} onPress={this._pickImage}><Text>Select Photo</Text></Button>
         
         <TextInput style={{ flex: 1, padding: 10, marginHorizontal:10, fontSize: 15, backgroundColor: '#f2f2f2', height: 150 }}

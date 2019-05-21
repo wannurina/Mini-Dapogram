@@ -19,6 +19,7 @@ import SignupScreen from "./Screens/Signup";
 import LoginScreen from "./Screens/Login";
 import HomeScreen from "./Screens/Home";
 import AddRecipeScreen from "./Screens/AddRecipe";
+import SettingsScreen from "./Screens/Settings";
 
 const RootStack = createStackNavigator({
 
@@ -26,8 +27,9 @@ const RootStack = createStackNavigator({
     Login: LoginScreen,
     Home: HomeScreen,
     AddRecipe: AddRecipeScreen,
+    Settings: SettingsScreen
   },{
-    initialRouteName: 'Home',
+    initialRouteName: 'Login',
   }
 ); 
 
