@@ -18,14 +18,16 @@ firebase.initializeApp(firebaseConfig);
 import SignupScreen from "./Screens/Signup";
 import LoginScreen from "./Screens/Login";
 import HomeScreen from "./Screens/Home";
+import AddRecipeScreen from "./Screens/AddRecipe";
 
 const RootStack = createStackNavigator({
 
     Signup: SignupScreen,
     Login: LoginScreen,
     Home: HomeScreen,
+    AddRecipe: AddRecipeScreen
   },{
-    initialRouteName: 'Signup',
+    initialRouteName: 'Login',
   }
 ); 
 

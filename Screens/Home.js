@@ -21,7 +21,7 @@ export default class HomeScreen extends Component {
           </Body>
           <Right>
             <Button transparent>
-              <Icon name="paper-plane" style={{ color: "#2E3131" }}/>
+              <Icon name="settings" style={{ color: "#2E3131" }}/>
             </Button>
           </Right>
         </Header>
@@ -72,7 +72,7 @@ export default class HomeScreen extends Component {
               <Icon name="home" style={{ fontSize: 25, color: "#2E3131"}}/>
             </Button>
             
-            <Button>
+            <Button onPress={() => this.props.navigation.navigate('AddRecipe')}>
               <Icon name='ios-add-circle-outline' style={{ fontSize: 25, color: "#2E3131"}}/>
             </Button>
             
